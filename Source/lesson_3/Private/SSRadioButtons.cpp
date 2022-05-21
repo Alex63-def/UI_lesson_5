@@ -16,6 +16,10 @@ void SSRadioButtons::Construct(const FArguments& InArgs)
 		// с домашки
 	Slots = InArgs._Slots;
 
+	// для стиля
+	CheckBoxStyle = &InArgs._Style->CheckBoxStyle;
+	TextStyle = &InArgs._Style->TextStyle;
+
 	int32 SlotsNum = Slots.Get();
 
 	VertBox = SNew(SVerticalBox);
@@ -83,9 +87,11 @@ TSharedRef<SWidget> SSRadioButtons::CreateCheckBox(int32 InIndex, FString InText
 	return SNew(SCheckBox) // виджет создается через макрос  SNew
 		.IsChecked_Raw(this, &SSRadioButtons::IsChecked, InIndex) // тут спрашиваем через атрибут можем ли мы обновить виджет - мы подвязали функцию
 		.OnCheckStateChanged_Raw(this, &SSRadioButtons::OnCheckboxStateChanged, InIndex) // меняет выбранный чекбокс 
+		.Style(CheckBoxStyle)
 		[ // в квадратных скобках создается чайлд 
 			SNew(STextBlock)
 			.Text(FText::FromString(InText))
+			.TextStyle(TextStyle)
 		];
 }
 

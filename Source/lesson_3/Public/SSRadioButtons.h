@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "RadioButtonsWidgetStyle.h"
 #include "Widgets/SCompoundWidget.h"
 
 /**
@@ -28,6 +29,9 @@ public:
 
 	// информирует что был создан виджет - информирует юмг обертку - точнее информирует об изменении индекса чек бокса
 	SLATE_EVENT(FOnRadioButtonChanged, OnRadioButtonChanged);
+
+	// с помощью этого передается стиль 
+	SLATE_STYLE_ARGUMENT(FRadioButtonsStyle, Style);
 
 	SLATE_END_ARGS()
 
@@ -61,5 +65,9 @@ private:
 
 	void OnCheckboxStateChanged(ECheckBoxState NewState, int32 InIndex);
 
+public:
+	// константы для стилей
+	const FCheckBoxStyle* CheckBoxStyle = nullptr;
+	const FTextBlockStyle* TextStyle = nullptr;
 	
 };

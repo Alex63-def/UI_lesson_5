@@ -5,10 +5,16 @@
 #include "Components/Button.h"
 #include "SSRadioButtons.h"
 #include "Components/NativeWidgetHost.h"
+#include "MyCoreStyle.h"
 
 void UMainMenuWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
+
+	if (RadioButtons)
+	{
+		RadioButtons->WidgetStyle = FMyCoreStyle::Get().GetWidgetStyle<FRadioButtonsStyle>("WS_RadioButtons_Default");
+	}
 
 	if (NewGameBtn)
 	{

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "RadioButtons.h"
 #include "Blueprint/UserWidget.h"
 #include "MainMenuWidget.generated.h"
 
@@ -27,6 +28,10 @@ public:
 	virtual void NativeDestruct() override;
 
 protected:
+
+	// для стиля в ассете
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional))
+		URadioButtons* RadioButtons;
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional))
 		UButton* NewGameBtn;

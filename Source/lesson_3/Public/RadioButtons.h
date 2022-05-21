@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/Widget.h"
 #include "SSRadioButtons.h"
+#include "RadioButtonsWidgetStyle.h"
 #include "RadioButtons.generated.h"
 
 /**
@@ -41,6 +42,10 @@ public:
 		FOnRadioButtonChangedEvent OnRadioButtonChanged;
 
 	virtual void ReleaseSlateResources(bool bReleaseChildren) override;
+
+	// для стиля - создаем обычную переменную которую сможем заполнять
+	UPROPERTY(EditAnywhere, Category = Appearance, Meta = (DisplayName = Style))
+		FRadioButtonsStyle WidgetStyle;
 
 protected:
 

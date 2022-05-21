@@ -15,7 +15,8 @@ TSharedRef<SWidget> URadioButtons::RebuildWidget()
 	RadioButtons = SNew(SSRadioButtons)
 		.OnRadioButtonChanged_UObject(this, &ThisClass::OnRadioButtonsChangedFunc)
 		.Slots(Slots)
-		.Index(Index);
+		.Index(Index)
+		.Style(&WidgetStyle);
 
 	return RadioButtons.ToSharedRef();
 }
